@@ -41,8 +41,8 @@ function listVideos(data) {
 
 		var title = data.feed.entry[i].title.$t;
 		var thumbnail = data.feed.entry[i].media$group.media$thumbnail[0].url;
-		var description = data.feed.entry[0].media$group.media$description.$t;
-		var id = data.feed.entry[0].id.$t.substring(38);
+		var description = data.feed.entry[i].media$group.media$description.$t;
+		var id = data.feed.entry[i].id.$t.substring(38);
 		
 		var blocktype = ((i % 2)===1) ? 'b': 'a';
 		
