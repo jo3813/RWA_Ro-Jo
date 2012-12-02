@@ -7,8 +7,8 @@ RWA_Ro-Jo-jojojojojojojojoj
 
 
 | jo | ---> 
-	youtube: Statut:
- 	flickr : Statut:
+	youtube: Statut: fait
+ 	flickr : Statut: en cours
 
 
 | ro | ---> 
