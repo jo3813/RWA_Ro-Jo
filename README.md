@@ -1,4 +1,4 @@
-RWA_Ro-Jo-jojojojojojojojoj
+RWA_Ro-Jo
 =========
 
 =====================================================
@@ -8,7 +8,7 @@ RWA_Ro-Jo-jojojojojojojojoj
 
 | jo | ---> 
 	youtube: Statut: fait
- 	flickr : Statut: en cours
+ 	flickr : Statut: fait
 
 
 | ro | ---> 
