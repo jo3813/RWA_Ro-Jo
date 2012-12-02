@@ -1,4 +1,24 @@
 RWA_Ro-Jo-jojojojojojojojoj
 =========
 
-troisième test
+=====================================================
+		ASSIGNEMENT DES TACHES
+=====================================================
+
+
+| jo | ---> 
+	youtube: Statut:
+ 	flickr : Statut:
+
+
+| ro | ---> 
+	twitter: Statut:
+	about  : Statut:
+	json feed (wordpress):Statut: 
+
+
+===============================
+	Racine projet
+===============================
+
+ jo3813 / RWA_Ro-Jo  : serveur git distant
