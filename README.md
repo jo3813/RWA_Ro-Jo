@@ -22,3 +22,6 @@ RWA_Ro-Jo-jojojojojojojojoj
 ===============================
 
  jo3813 / RWA_Ro-Jo  : serveur git distant
+
+Date rendu du projet: Dimanche.
+Délai: 7 jours.
