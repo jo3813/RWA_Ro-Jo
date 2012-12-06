@@ -9,6 +9,7 @@ RWA_Ro-Jo
 | jo | ---> 
 	youtube: Statut: fait
  	flickr : Statut: fait
+	googlemap: en cours
 
 
 | ro | ---> 
@@ -24,4 +25,4 @@ RWA_Ro-Jo
  jo3813 / RWA_Ro-Jo  : serveur git distant
 
 Date rendu du projet: Dimanche.
-Délai: 7 jours.
+Délai: 4 jours.
