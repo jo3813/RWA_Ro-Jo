@@ -112,7 +112,9 @@ $('#map').live("pageinit", function() {
                 { 'position': mapdata.destination, //map.getCenter(),
                   'animation' : google.maps.Animation.DROP
  }).click(function() {
-		$('#map_square').gmap('openInfoWindow', {'content': 'Hello World!'}, this);                                                                                                                                                                                                            
+		$('#map_square').gmap('openInfoWindow', {'content': ' <h3>ITB</h3>'+
+					'<p>Institute of technology Blanchardstown! One of the most famous university of ireland</p>'+
+					'<img src="./images/itb2.jpg" width="80" height="60" hspace="10" border="1" alt="Thumbnail 0" id="Img0" />'}, this);                                                                                                                                                                                                            
         });
 		
 		});
@@ -122,14 +124,6 @@ $('#map').live("pageinit", function() {
      $('#map').live("pageinit", function() {
                 $('#map_square').gmap({'center': mapdata.destination});
         });
-
-
-// $('#map_square').gmap().bind('init', function(ev, map) {
-	// $('#map_square').gmap('addMarker', {'position': mapdata.destination, 'bounds': true}).click(function() {
-		// $('#map_square').gmap('openInfoWindow', {'content': 'Hello World!'}, this);
-	// });
-// });
-
  });
  
 // <--- Directions --->
@@ -159,22 +153,7 @@ $('#directions').live("pageinit", function() {
 		.bind('init', function() {
         $('.refresh').trigger('tap');        
     });
-        // .bind('init', function(evt, map) {
-            // $('#map_dir').gmap('addMarker',
-                // { 'position': mapdata.destination, //map.getCenter(),
-                  // 'animation' : google.maps.Animation.DROP
- // }).click(function() {
-		// $('#map_dir').gmap('openInfoWindow', {'content': 'Hello World!'}, this);                                                                                                                                                                                                            
-        // });
-		
-		// });
-     // $('#directions').live("pageshow", function() {
-                // $('#map_dir').gmap('refresh');
-        // });
-     // $('#directions').live("pageinit", function() {
-                // $('#map_dir').gmap({'center': mapdata.destination});
-        // });
-		
+        
 		$('#directions').live("pageshow", function() {
 		$('#map_dir').gmap('refresh');
 });
