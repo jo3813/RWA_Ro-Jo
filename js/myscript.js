@@ -131,3 +131,101 @@ $('#map').live("pageinit", function() {
 // });
 
  });
+ 
+// <--- Directions --->
+ //briefly display the provided message to the user in a fading message box
+ function fadingMsg (locMsg) {
+    $("<div class='ui-overlay-shadow ui-body-e ui-corner-all fading-msg'>" + locMsg + "</div>")
+    .css({ "display": "block", "opacity": 0.9, "top": $(window).scrollTop() + 100 })
+    .appendTo( $.mobile.pageContainer )
+    .delay( 2200 )
+    .fadeOut( 1000, function(){
+        $(this).remove();
+   });
+}
+
+//Create the map then make 'displayDirections' request
+
+$('#directions').live("pageinit", function() {
+
+    $('#map_dir').gmap(
+        { 
+		  'zoom' : 12,
+		  'center' : mapdata.destination, 
+          'mapTypeControl' : true,
+          'navigationControl' : true,
+          'streetViewControl' : false
+        })
+		.bind('init', function() {
+        $('.refresh').trigger('tap');        
+    });
+        // .bind('init', function(evt, map) {
+            // $('#map_dir').gmap('addMarker',
+                // { 'position': mapdata.destination, //map.getCenter(),
+                  // 'animation' : google.maps.Animation.DROP
+ // }).click(function() {
+		// $('#map_dir').gmap('openInfoWindow', {'content': 'Hello World!'}, this);                                                                                                                                                                                                            
+        // });
+		
+		// });
+     // $('#directions').live("pageshow", function() {
+                // $('#map_dir').gmap('refresh');
+        // });
+     // $('#directions').live("pageinit", function() {
+                // $('#map_dir').gmap({'center': mapdata.destination});
+        // });
+		
+		$('#directions').live("pageshow", function() {
+		$('#map_dir').gmap('refresh');
+});
+		
+		// Request display of directions, requires jquery.ui.map.services.js
+var toggleval = true; // used for test case: static locations
+
+
+             //START: Tracking location with device geolocation
+    if ( navigator.geolocation ) { 
+        fadingMsg('Using device geolocation to get current position.');
+
+
+        navigator.geolocation.getCurrentPosition  ( 
+            function(position )  {
+                $('#map_dir').gmap('displayDirections', 
+                { 'origin' : new google.maps.LatLng(position.coords.latitude, position.coords.longitude), 
+                  'destination' : mapdata.destination, 'travelMode' : google.maps.DirectionsTravelMode.DRIVING},
+                { 'panel' : document.getElementById('dir_panel')},
+                      function (result, status) {
+                          if (status === 'OK') {
+                              var center = result.routes[0].bounds.getCenter();
+                              $('#map_dir').gmap('option', 'center', center);
+                              $('#map_dir').gmap('refresh')
+                          } else {
+                              alert('Unable to get route');
+                          }
+                      }
+                   );         
+                }, 
+                function(){ 
+                    alert('Unable to get location');
+                    $.mobile.changePage($('#directions'), {   }); 
+				}, { enableHighAccuracy: true } ); 
+                
+            } else {
+                alert('Unable to get location.');
+            }           
+    //END: Tracking location with device geolocation
+    $(this).removeClass($.mobile.activeBtnClass);
+    return false;
+});
+
+
+
+// Go to map page to see instruction detail (zoom) on map page
+$('#dir_panel').live("tap", function() {
+    $.mobile.changePage($('#directions'), {});
+});
+
+// Briefly show hint on using instruction tap/zoom
+$('#directions').live("pageshow", function() {
+    fadingMsg("Tap any instruction<br/>to see details on map");
+});
