@@ -32,7 +32,7 @@ function showPost(id) {
 	}); //get JSON Data for Stories
 } //showPost
 
-
+//Youtube
 function listVideos(data) {
 	console.log(data);
 	
@@ -65,7 +65,7 @@ function playVideo(id, title, description) {
 	$('#myplayer').html(output);
 }
 
-
+// Flickr
 function jsonFlickrFeed(data) {
 	console.log(data);
 	var output='';
@@ -93,3 +93,41 @@ function showPhoto(link, title) {
 	output += '</a>';
 	$('#myphoto').html(output);
 }
+
+// Google Map
+var mapdata = { destination: new google.maps.LatLng(53.405106, -6.378039) };
+
+$('#map').live("pageinit", function() {
+
+    $('#map_square').gmap(
+        { 
+		  'zoom' : 12,
+		  'center' : mapdata.destination, 
+          'mapTypeControl' : false,
+          'navigationControl' : false,
+          'streetViewControl' : false
+        })
+        .bind('init', function(evt, map) {
+            $('#map_square').gmap('addMarker',
+                { 'position': mapdata.destination, //map.getCenter(),
+                  'animation' : google.maps.Animation.DROP
+ }).click(function() {
+		$('#map_square').gmap('openInfoWindow', {'content': 'Hello World!'}, this);                                                                                                                                                                                                            
+        });
+		
+		});
+     $('#map').live("pageshow", function() {
+                $('#map_square').gmap('refresh');
+        });
+     $('#map').live("pageinit", function() {
+                $('#map_square').gmap({'center': mapdata.destination});
+        });
+
+
+// $('#map_square').gmap().bind('init', function(ev, map) {
+	// $('#map_square').gmap('addMarker', {'position': mapdata.destination, 'bounds': true}).click(function() {
+		// $('#map_square').gmap('openInfoWindow', {'content': 'Hello World!'}, this);
+	// });
+// });
+
+ });
