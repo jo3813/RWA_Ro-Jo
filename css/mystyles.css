@@ -63,6 +63,17 @@ body {
 	padding: 0;
 }
 
+/* css rajouté */
+#littlecontent{
+font-weight: bold;
+text-align: center;
+}
+
+#controlgroup{
+margin-top:
+}
+
+
 #videoplayer iframe {
 	width: 100%;
 	min-height: 50%;
