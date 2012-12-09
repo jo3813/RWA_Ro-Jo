@@ -208,3 +208,21 @@ $('#dir_panel').live("tap", function() {
 $('#directions').live("pageshow", function() {
     fadingMsg("Tap any instruction<br/>to see details on map");
 });
+
+function listTweets(data) {
+	console.log(data);
+	var output = '<ul data-role="listview" data-theme="a">';
+	// use jQuery each function because don't need to use a grid
+	$.each(data, function(key, val) {
+		var text = data[key].text;
+		var thumbnail = data[key].user.profile_image_url;
+		var name = data[key].user.name;
+		
+		output += '<li>';
+		output += '<img src="' + thumbnail +'" alt="Photo of ' + name + '">';
+		output += '<div>' + text + '</div>';
+		output += '</li>';		
+	}); //go through each tweet
+	output += '</ul>';
+	$('#tweetlist').html(output);
+}

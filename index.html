@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<title>View Source</title>
+	<title>itbasketeam</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 <!-- downloaded from themeroller -->
@@ -37,7 +37,7 @@
 				>Info</a>
 		</div><!-- header -->
 		<div data-role="content" id="littlecontent">
-			WELCOME TO OUR SITE !à
+			--WELCOME TO YOUR FAVORITE BASKET BALL WEBSITE--
 		</div>
 		<div data-role="controlgroup" id="controlgroup">
 			<a href="#blog"
@@ -56,6 +56,7 @@
 				data-role="button"
 				data-icon="arrow-r"
 			>Tweets</a>
+			
 			<a href="#map"
 				data-ajax="false"
 				data-role="button"
@@ -85,34 +86,8 @@
 				>Info</a>
 		</div><!-- header -->
 		<div data-theme="a"
-		data-role="content">
-			<div data-role="collapsible-set">
-				<div data-role="collapsible">
-					<h3>A JSON Tutorial. Getting started with JSON</h3>
-					<p>Getting started with JavaScript Object Notation. A JSON tutorial for Absolute Beginners</p>
-				</div><!-- collapsible -->
-
-				<div data-role="collapsible"
-					data-collapsed="false">
-					<h3>WordPress Newbie Tip…control length of posts on homepage</h3>
-					<p>If your WordPress site is set up to show the full length articles</p>
-				</div><!-- collapsible -->
-
-				<div data-role="collapsible">
-					<h3>Tips for finding a great domain name</h3>
-					<p>Workflow tips and tricks for Adobe In-Design</p>
-				</div><!-- collapsible -->
-
-				<div data-role="collapsible">
-					<h3>Advantages of Creating Subdomain Shortcuts</h3>
-					<p>Creating sub-domains gives you the ability to create shortcuts</p>
-				</div><!-- collapsible -->
-
-				<div data-role="collapsible">
-					<h3>Creating a Photo Rotator with JQuery Cycle</h3>
-					<p>I love the JQuery tagline…write less, do more. </p>
-				</div><!-- collapsible -->
-			</div><!-- accordion -->
+		data-role="content"
+		id="postlist">
 		</div><!-- content -->
 		<div data-role="footer"
 			data-position="fixed"
@@ -310,7 +285,9 @@
 				data-rel="dialog"
 				>Info</a>
 		</div><!-- header -->
-		<p>Tweets page.</p>
+		<div data-role="content"
+			id="tweetlist">
+		</div><!-- content -->
 		<div data-role="footer"
 			data-position="fixed"
 			data-id="vs_footer">
@@ -479,7 +456,7 @@
 			<h1>About View Source</h1>
 		</div>
 		<div data-role="content">
-			<p>View Source offers short projects on intermediate to advanced web design topics, covering technologies such as HTML, PHP, jQuery, and CSS, as well as content management solutions like WordPress and integration with Twitter, YouTube, and more.</p>
+			<p>ABOUT OUR SITE ==> on itbasket you can check your favorite photos and videos on youtube, get a fast itinirary to our place from your current position, check the last twitter news and of course consult the blog where all the informations that you're looking for became available ! Good navigation, the ro & jo team. </p>
 			<a href="#"
 				data-role="button"
 				data-inline="true"
@@ -493,8 +470,13 @@
 			>home</a>
 		</div>
 	</div>
+	
+<!-- Script youtube, twitter, flickr, iviewsource -->
+<script src="http://iviewsource.com/?json=recentstories&callback=listPosts" type="text/javascript"></script>
 
 <script src="http://gdata.youtube.com/feeds/users/nbashowtimehd/uploads?alt=json-in-script&max-results=30&callback=listVideos" type="text/javascript"></script>
+
+<script src="http://twitter.com/status/user_timeline/planetoftheweb.json?count=30&callback=listTweets" type="text/javascript"></script>
 
 <script src="http://api.flickr.com/services/feeds/photos_public.gne?id=62496834@N02&format=json" type="text/javascript"></script>
 
