@@ -5,6 +5,7 @@ body {
 #home {
 	background: url('../images/background2.jpg');
 	background-size: cover; 
+	text-align:center;
 }
 
 #home .ui-controlgroup {
@@ -12,6 +13,7 @@ body {
 	margin: 0 auto;
 	margin-top: 20px;
 	max-width: 250px;
+
 }
 
 #home img {
