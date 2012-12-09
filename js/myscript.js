@@ -99,6 +99,16 @@ var mapdata = { destination: new google.maps.LatLng(53.405106, -6.378039) };
 
 $('#map').live("pageinit", function() {
 
+     $('#map').live("pageshow", function() {
+                $('#map_square').gmap('refresh');
+				$("#map_square").width($(document).width());  
+        $("#map_square").height(  
+            $(window).height()   
+            - $("div.ui-footer").outerHeight()   
+            - $("div.ui-header").outerHeight()  
+        );  
+       });
+
     $('#map_square').gmap(
         { 
 		  'zoom' : 12,
@@ -109,11 +119,11 @@ $('#map').live("pageinit", function() {
         })
         .bind('init', function(evt, map) {
             $('#map_square').gmap('addMarker',
-                { 'position': mapdata.destination, //map.getCenter(),
+                { 'position': mapdata.destination,
                   'animation' : google.maps.Animation.DROP
  }).click(function() {
 		$('#map_square').gmap('openInfoWindow', {'content': ' <h3>ITB</h3>'+
-					'<p>Institute of technology Blanchardstown! One of the most famous university of ireland</p>'+
+					'<p>Institute of technology Blanchardstown</p>'+
 					'<img src="./images/itb2.jpg" width="80" height="60" hspace="10" border="1" alt="Thumbnail 0" id="Img0" />'}, this);                                                                                                                                                                                                            
         });
 		
@@ -141,6 +151,12 @@ $('#map').live("pageinit", function() {
 //Create the map then make 'displayDirections' request
 
 $('#directions').live("pageinit", function() {
+
+    $('#directions').live("pageshow", function() {
+                $('#map_dir').gmap('refresh');
+				$("#map_dir").width($(document).width());  
+
+       });
 
     $('#map_dir').gmap(
         { 
