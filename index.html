@@ -20,6 +20,11 @@
 
 </head>
 <body>
+<script style="text/javascript">
+var numposts=5;
+var numchars=1000;
+</script>
+
 	<!-- Page: home -->
 	<div id="home"
 		data-role="page"
@@ -88,6 +93,69 @@
 		<div data-theme="a"
 		data-role="content"
 		id="postlist">
+		<html>
+<head>
+
+<script style="text/javascript">
+function showrecentposts(json) {
+  // start a loop
+  // in this loop we get the entry from the feed and parse it
+  for (var i = 0; i < numposts; i++) {
+    // get entry i from feed
+    var entry = json.feed.entry[i];
+    // get the posttitle
+    var posttitle = entry.title.$t;
+    // get the post url
+    // check all links for the link with rel = alternate
+    var posturl;
+    if (i == json.feed.entry.length) break;
+    for (var k = 0; k < entry.link.length; k++) {
+      if (entry.link[k].rel == 'alternate') {
+        posturl = entry.link[k].href;
+        break;
+      }
+    }
+    // get the postdate, take only the first 10 characters
+    var postdate = entry.published.$t.substring(0,10);
+    // get the post author
+    var postauthor = entry.author[0].name.$t;
+    // get the postcontent
+    // if the Blogger-feed is set to FULL, then the content is in the content-field
+    // if the Blogger-feed is set to SHORT, then the content is in the summary-field
+    if ("content" in entry) {
+      var postcontent = entry.content.$t;}
+    else
+    if ("summary" in entry) {
+      var postcontent = entry.summary.$t;}
+    else var postcontent = "";
+    // strip off all html-tags
+    var re = /<\S[^>]*>/g; 
+    postcontent = postcontent.replace(re, "");
+    // reduce postcontent to numchar characters
+    if (postcontent.length > numchars) postcontent = postcontent.substring(0,numchars);
+    // display the results
+    document.write('<br>');
+    document.write('Entry #' + i + '<br>');
+    document.write('Post title    : '+ posttitle + '<br>');
+    document.write('Post url      : <a href="'+ posturl + '">' + posturl + '</a><br>');
+    document.write('Post author   : '+ postauthor + '<br>');
+    document.write('Postdate      : '+ postdate + '<br>');
+    document.write('Postcontent   : '+ postcontent + '<br>');
+    document.write('<br>');
+  }
+}
+</script>
+</head>
+<body>
+RECENT POSTS
+
+<script style="text/javascript">
+var numposts=5;
+var numchars=100;
+</script>
+<script src="http://itbasketeam.blogspot.com/feeds/posts/default?alt=json-in-script&callback=showrecentposts"></script>
+</body>
+</html>
 		</div><!-- content -->
 		<div data-role="footer"
 			data-position="fixed"
@@ -472,11 +540,11 @@
 	</div>
 	
 <!-- Script youtube, twitter, flickr, iviewsource -->
-<script src="http://iviewsource.com/?json=recentstories&callback=listPosts" type="text/javascript"></script>
+<script src="http://itbasketeam.blogspot.com/feeds/posts/default?alt=json-in-script&callback=showfeedcontent"></script>
 
 <script src="http://gdata.youtube.com/feeds/users/nbashowtimehd/uploads?alt=json-in-script&max-results=30&callback=listVideos" type="text/javascript"></script>
 
-<script src="http://twitter.com/status/user_timeline/planetoftheweb.json?count=30&callback=listTweets" type="text/javascript"></script>
+<script src="http://api.twitter.com/1/statuses/user_timeline/NBA.json?include_entities=true&include_rts=true&screen_name=twitterapi&count=30&callback=listTweets" type="text/javascript"></script>
 
 <script src="http://api.flickr.com/services/feeds/photos_public.gne?id=62496834@N02&format=json" type="text/javascript"></script>
 
